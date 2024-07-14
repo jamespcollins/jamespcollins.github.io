@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'klinic-slab-bold';
+    src: url('fonts/KlinicSlabBold.otf');
+}
+
+@font-face {
+    font-family: 'klinic-slab-it';
+    src: url('fonts/KlinicSlabBookIt.otf');
+}
+
+
+@font-face {
+    font-family: 'klinic-slab';
+    src: url('fonts/KlinicSlabBook.otf');
+}
+
+@font-face {
+    font-family: 'klinic-slab-medium';
+    src: url('fonts/KlinicSlabMedium.otf');
+}
+
+body {
+    font-family: 'klinic-slab';
+    background-color: #efefef;
+    color: #444;
+}
+
+b {
+    font-family: 'klinic-slab-medium';
+}
+
+i {
+    font-family: 'klinic-slab-it';
+}
+
+a {
+    color: steelblue;
+}
+
+.img-max {
+    max-width: 200px;
+    width:100%;
+}
+
+.light {
+    color: #888;
+}
