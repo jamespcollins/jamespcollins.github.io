@@ -19,6 +19,16 @@
     src: url('fonts/KlinicSlabMedium.otf');
 }
 
+@font-face {
+    font-family: 'klinic-slab-light';
+    src: url('fonts/KlinicSlabLight.otf');
+}
+
+@font-face {
+    font-family: 'klinic-slab-light-it';
+    src: url('fonts/KlinicSlabLightIt.otf');
+}
+
 body {
     font-family: 'klinic-slab';
     background-color: #efefef;
@@ -44,4 +54,9 @@ a {
 
 .light {
     color: #888;
+    font-family: 'klinic-slab-light';
+}
+
+.light > i, i > .light {
+    font-family: 'klinic-slab-light-it';
 }
