@@ -60,3 +60,7 @@ a {
 .light > i, i > .light {
     font-family: 'klinic-slab-light-it';
 }
+
+h1 > small {
+    font-size: .475em;
+}
