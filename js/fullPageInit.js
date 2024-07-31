@@ -6,8 +6,7 @@ if (window.innerWidth >= 992) {
 
         // you can also use the HTML attribute data-tooltip on each section instead
         navigation: true,
-        // navigationTooltips: ['Hello', 'Research', 'Publications', 'Contact'],
-        navigationTooltips: ['Hello', 'Research', 'Contact'],
+        navigationTooltips: navTooltips,
 
         // Navigation for horizontal slides
         slidesNavigation: true,
@@ -19,8 +18,7 @@ if (window.innerWidth >= 992) {
             '<div class="my-arrow">&RightAngleBracket;</div>'
         ],
 
-        // anchors: ['','research','publications','contact'],
-        anchors: ['','research','contact'],
+        anchors: pageAnchors,
 
         licenseKey: 'gplv3-license'
     });
