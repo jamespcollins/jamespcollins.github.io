@@ -1,23 +1,25 @@
-new fullpage('#fullpage', {
-    responsiveWidth: 992,
+if (window.innerWidth >= 992) {
+    new fullpage('#fullpage', {
+        responsiveWidth: 992,
 
-    recordHistory: false,
+        recordHistory: false,
 
-    // you can also use the HTML attribute data-tooltip on each section instead
-    navigation: true,
-    navigationTooltips: navTooltips,
+        // you can also use the HTML attribute data-tooltip on each section instead
+        navigation: true,
+        navigationTooltips: navTooltips,
 
-    // Navigation for horizontal slides
-    slidesNavigation: true,
-    slidesNavPosition: 'top', // Default
+        // Navigation for horizontal slides
+        slidesNavigation: true,
+        slidesNavPosition: 'top', // Default
 
-    controlArrows: true,
-    controlArrowsHTML: [
-        '<div class="my-arrow">&LeftAngleBracket;</div>',
-        '<div class="my-arrow">&RightAngleBracket;</div>'
-    ],
+        controlArrows: true,
+        controlArrowsHTML: [
+            '<div class="my-arrow">&LeftAngleBracket;</div>',
+            '<div class="my-arrow">&RightAngleBracket;</div>'
+        ],
 
-    anchors: pageAnchors,
+        anchors: pageAnchors,
 
-    licenseKey: 'gplv3-license'
-});
+        licenseKey: 'gplv3-license'
+    });
+}

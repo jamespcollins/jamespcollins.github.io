@@ -57,7 +57,7 @@
         color: #828282 !important;
     }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 992px) {
     .overlay-video {
         display: none;
     }
@@ -71,6 +71,7 @@
         color: default;
     }
     .nav-link {
+        margin-left: 1em;
         padding: .3em 1em;
         background-color: #efefef75;
         border-radius: 1em;
