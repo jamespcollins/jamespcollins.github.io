@@ -3,6 +3,12 @@
     box-shadow: none;
 }
 
+cite {
+    font-style: normal;
+    opacity: 0.65;
+    font-size: small;
+}
+
 /* video */
 @media screen and (min-width: 768px) {
     .overlay-video {
