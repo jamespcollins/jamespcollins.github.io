@@ -73,7 +73,7 @@
                         </video>
                         <h1>Chronic coastal flooding tolerance in rural North Carolina</h1>
                         <h5>How are people dealing with increasing chronic flooding risk from higher tides and more intense rainfall?</h5>
-                        <p>James P. Collins, Ryan McCune</p>
+                        <p class="light">James P. Collins, Ryan McCune &CenterDot; August 2024</p>
                         <hr>
                     </div>
                     <div class="col-lg-7 px-sm-5 px-lg-3 mb-3">
@@ -143,13 +143,14 @@
                 }
             }).addTo(map);
 
-            L.control.resetView({
-                position: "topleft",
+            var resetControl = L.control.resetView({
+                position: "topright",
                 title: "Reset map",
                 latlng: [34.86, -76.6],
                 zoom: 10,
             }).addTo(map);
 
+            resetControl.getContainer().children[0].onclick = (e)=>{e.preventDefault()} // fix bug, scrolls to page top
         </script>
 
         <div class="section">
