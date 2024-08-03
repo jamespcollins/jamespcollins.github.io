@@ -1,0 +1,84 @@
+.fp-tooltip {
+    background: none !important;
+    box-shadow: none;
+}
+
+/* video */
+@media screen and (min-width: 768px) {
+    .overlay-video {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        top:0;
+        right:0;
+        width: 100%;
+        height: 100%;
+        background-size: 100% 100%;
+        background-color: black; /* in case the video doesn't fit the whole page*/
+        /* background-image: ; */
+        background-position: center;
+        background-size: cover;
+        object-fit: cover; /*cover video background */
+        z-index: -100;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+
+    /* Layer with position absolute in order to have it over the video */
+    .layer{
+        /*
+        * Preventing flicker on some browsers
+        * See http://stackoverflow.com/a/36671466/1081396  or issue #183
+        */
+        -webkit-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+    }
+    #section-1 {
+        color: #fff;
+    }
+    #backup-video {
+        display: none;
+    }
+    #section-1 a {
+        color: skyblue !important;
+    }
+    #fp-nav ul li a span {
+        background-color: #828282;
+    }
+    .nav-link {
+        color: black;
+    }
+    #section-1 hr {
+        display: none;
+    }
+    .fp-tooltip {
+        color: #828282 !important;
+    }
+}
+@media screen and (max-width: 992px) {
+    .overlay-video {
+        display: none;
+    }
+    #section-1 {
+        color: #444;
+    }
+    #backup-video {
+        display: block;
+    }
+    #section-1 a {
+        color: default;
+    }
+    .nav-link {
+        margin-left: 1em;
+        padding: .3em 1em;
+        background-color: #efefef75;
+        border-radius: 1em;
+    }
+    #map {
+        margin-left: 1em;
+        width: 100%;
+        margin-bottom: 3em;
+    }
+}
