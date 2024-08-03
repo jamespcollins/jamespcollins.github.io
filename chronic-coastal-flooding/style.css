@@ -71,7 +71,10 @@ cite {
         color: #444;
     }
     #backup-video {
-        display: block;
+        display: inherit;
+        width: 100vw;
+        height: 50vh;
+        object-fit: cover;
     }
     #section-1 a {
         color: default;
