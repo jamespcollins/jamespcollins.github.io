@@ -70,11 +70,23 @@
     #section-1 a {
         color: default;
     }
+    .navbar {
+        z-index: 9999;
+    }
     .nav-link {
         margin-left: 1em;
         padding: .3em 1em;
-        background-color: #efefef75;
+        background-color: #eee;
         border-radius: 1em;
+        border: 1px solid transparent;
+    }
+    .nav-link:hover {
+        background-color: #fff;
+        border: 1px solid #444;
+    }
+    .nav-link:active {
+        background-color: #ccc;
+        border: 1px solid #444;
     }
     #map {
         margin-left: 1em;
