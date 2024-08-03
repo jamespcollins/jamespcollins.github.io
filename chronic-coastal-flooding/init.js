@@ -20,6 +20,32 @@ if (window.innerWidth >= 992) {
 
         anchors: pageAnchors,
 
+        onLeave: () => {
+            document.getElementById("lightbox").className = "";
+        },
+
         licenseKey: 'gplv3-license'
     });
 }
+
+// https://code-boxx.com/image-zoom-css-javascript/
+window.onload = () => {
+    // (A) GET LIGHTBOX & ALL .ZOOMD IMAGES
+    let all = document.getElementsByClassName("img-zoom"),
+        lightbox = document.getElementById("lightbox");
+   
+    // (B) CLICK TO SHOW IMAGE IN LIGHTBOX
+    // * SIMPLY CLONE INTO LIGHTBOX & SHOW
+    if (all.length>0) { for (let i of all) {
+      i.onclick = () => {
+        let clone = i.cloneNode();
+        clone.className = "";
+        lightbox.innerHTML = "";
+        lightbox.appendChild(clone);
+        lightbox.className = "show";
+      };
+    }}
+   
+    // (C) CLICK TO CLOSE LIGHTBOX
+    lightbox.onclick = () => lightbox.className = "";
+};
