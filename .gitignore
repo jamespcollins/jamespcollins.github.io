@@ -1,1 +1,5 @@
 *.ignore.*
+*.geojson
+*.qmd
+*.aux.xml
+*.tif
