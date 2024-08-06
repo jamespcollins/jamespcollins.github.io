@@ -101,7 +101,22 @@
                     <div class="row">
                         <div class="col-lg-3 px-sm-5 px-lg-3">
                             <p>We interviewed people who live and work in eastern Carteret County about their experiences of chronic coastal flooding and how they are dealing with it in their day-to-day lives. We completed 16 interviews with residents and 6 interviews with "local experts" in education, agriculture, parks and conservation, public safety, and utilities.</p>
-                            <p>Our interviews included residents of Beaufort, Cedar Island, Davis, Gloucester, Harkers Island, Marshallberg, Sea Level, Straits, and Williston. Our respondents were also familiar with Merrimon, Morehead City, North River, and Stacy.</p>
+                            <p class="mapped-places-container">Our interviews included residents of 
+                                <span class="mapped-place">Beaufort</span>, 
+                                <span class="mapped-place">Cedar Island</span>, 
+                                <span class="mapped-place">Davis</span>, 
+                                <span class="mapped-place">Gloucester</span>, 
+                                <span class="mapped-place">Harkers Island</span>, 
+                                <span class="mapped-place">Marshallberg</span>, 
+                                <span class="mapped-place">Sea Level</span>, 
+                                <span class="mapped-place">Straits</span>, and 
+                                <span class="mapped-place">Williston</span>. 
+                                Our respondents were also familiar with 
+                                <span class="mapped-place">Merrimon</span>, 
+                                <span class="mapped-place">Morehead City</span>, 
+                                <span class="mapped-place">North River</span>, and 
+                                <span class="mapped-place">Stacy</span>.
+                            </p>
                             <p>In this map, we show where residents reported they have seen <span class="text-primary">flooding roads</span> and the density of <span class="text-danger">important places</span> like work, grocery stores, and churches.</p>
                             <p>These mapped locations and flooding roadways suggest that chronic coastal flooding is already impacting connectivity between important places.</p>
                         </div>
@@ -113,6 +128,7 @@
             </div>
         </div>
         <script src="geodata/flooding roads filtered.js"></script>
+        <script src="geodata/town labels.js"></script>
         <script>
             var map = L.map('map',{ 
                 zoomControl: false, 
@@ -146,6 +162,23 @@
                 }
             }).addTo(map);
 
+            townLabelLayers = {}
+            var labelLayer = new L.GeoJSON(townLabels,{
+                pointToLayer: function (f, ll) {
+                    return L.circleMarker(ll, {
+                        color: '#444',
+                        fillColor: '#444',
+                        fillOpacity: 0.1,
+                        opacity: 0.3,
+                        radius: 10
+                    });
+                },
+                onEachFeature: (f,l) => {
+                    l.bindTooltip(f.properties["label"]);
+                    townLabelLayers[f.properties["label"]] = l;
+                }
+            }).addTo(map);
+
             var resetControl = L.control.resetView({
                 position: "topright",
                 title: "Reset map",
@@ -154,6 +187,23 @@
             }).addTo(map);
 
             resetControl.getContainer().children[0].onclick = (e)=>{e.preventDefault()} // fix bug, scrolls to page top
+
+            document.querySelectorAll('.mapped-place').forEach((s) => {
+                s.addEventListener("mouseover", (e)=>{
+                    layer = townLabelLayers[s.textContent]
+                    layer.openTooltip();
+                    map.panTo(layer.getLatLng());
+                });
+                s.addEventListener("mouseout", (e)=>{
+                    townLabelLayers[s.textContent].closeTooltip();
+                });
+            });
+
+            document.querySelectorAll('.mapped-places-container').forEach((s) => {
+                s.addEventListener("mouseout", (e)=>{
+                    resetControl._resetView();
+                });
+            });
         </script>
 
         <div class="section">
@@ -172,7 +222,7 @@
                     <div class="col-lg-8 px-sm-5 px-lg-3 mb-3">
                         <figure class="figure">
                             <img class="figure-img img-fluid img-zoom" src="collins_croaker.jpg" alt="A driver avoids high-tide flooding water on a road.">
-                            <figcaption class="figure-caption">A driver in Davis, NC, avoids salt water from high-tide flooding.</figcaption>
+                            <figcaption class="figure-caption">A driver in Davis, NC, avoids saltwater from high-tide flooding.</figcaption>
                         </figure>
                     </div>
                 </div>
@@ -190,7 +240,7 @@
                     <div class="col-lg-4 px-sm-5 px-lg-3">
                         <p>Residents of Down East are already taking steps to accommodate flooding. <b>Accommodating risk</b> means taking measures that allow continued use of flood-prone areas <cite>(Doberstein, Fitzgibbons, and Mitchell 2019)</cite>. These strategies include changes to the built environment and changes to daily routines.</p>
                         <p>When it comes to the built environment, most residents had at least considered elevating their home, and about half had already done so. Other evidence of accommodation we observed included elevated planter beds, shingles laid out where water stood in driveways, containers or tractor trailers kept as dry storage, and new ditching.</p>
-                        <p>In terms of daily routines, most residents said they stay home during flooding to avoid driving through salt water, which rusts components faster than fresh water. A few respondents who work in Morehead City said they have stayed at hotels and with friends in town when flooding on parts of US-70 and NC-12 cuts them off from home. A few respondents described benefits coming from flooding, including better birding in Cedar Island National Wildlife Refuge and walking through shallow water along quieter neighborhood streets.</p>
+                        <p>In terms of daily routines, most residents said they stay home during flooding to avoid driving through saltwater, which rusts components faster than fresh water. A few respondents who work in Morehead City said they have stayed at hotels and with friends in town when flooding on parts of US-70 and NC-12 cuts them off from home. A few respondents described benefits coming from flooding, including better birding in Cedar Island National Wildlife Refuge and walking through shallow water along quieter neighborhood streets.</p>
                         <p>In general, the actions people take to prepare for more severe hurricane-driven flooding, like home elevations and keeping extra supplies, are protective for chronic flooding as well.</p>
                     </div>
                     <div class="col-lg-8 px-sm-5 px-lg-3 mb-3">
@@ -261,7 +311,10 @@
                         <p>The people of rural communities in eastern Carteret County have longstanding connections to these places &mdash; to each other, to the land, and to the waters of Core Sound, North River, Adams Creek, and more. They have weathered and responded to pressures from injurious public policy, hurricanes, and private development, all while maintaining strong local and regional identities and customs.</p>
                         <p>It is easier to notice changes that occur quickly and dramatically &mdash; a new inlet cut by a hurricane, the closure of a fish factory, the consolidation of schools. Chronic coastal flooding is not a fast or dramatic change, but the small ways it impacts daily life can add up over time and, without accommodation and adaptation, create new pressures on movement, livelihoods, and aging.</p>
                         <p>By documenting how chronic coastal flooding is happening, experienced, and thought about at this point in time, we intended to give these communities a reference point in their conversations about the future. We are indebted to these communities for the time, stories, and experiences they shared with us. We present these initial findings with the hope that these communities maintain and strengthen their agency over where and how they live. We will continue to work with these communities to do so.</p>
-                        <p>But for now, we're mommicked. &#10070;</p>
+                        <p>But for now, we're mommicked. 
+                            <i class="bi bi-water"></i>
+                            <!-- <i class="bi bi-droplet-fill"></i> -->
+                        </p>
                     </div>
                     <div class="col-lg-8 px-sm-5 px-lg-3 mb-3">
                         <figure class="figure">
