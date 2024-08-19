@@ -164,3 +164,7 @@ object-fit: cover;
     border-bottom: 1px dotted #444;
     cursor: pointer;
 }
+
+sup a {
+    text-decoration: none;
+}
