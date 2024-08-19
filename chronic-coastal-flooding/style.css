@@ -104,6 +104,12 @@ cite {
         width: 100%;
         margin-bottom: 3em;
     }
+    .brand {
+        display: none;
+    }
+    #section-1 hr {
+        display: inherit;
+    }
 }
 
 /* https://code-boxx.com/image-zoom-css-javascript/ */
