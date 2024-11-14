@@ -3,3 +3,4 @@
 *.qmd
 *.aux.xml
 *.tif
+.DS_Store
