@@ -80,11 +80,15 @@
                                 <b>I am currently a Ph.D. student</b> in the 
                                 <a href="https://planning.unc.edu/" target="_blank">Department of City and Regional Planning</a> at the University of North Carolina at Chapel Hill, where I am training as a community-engaged mixed methods researcher. 
                                 I am an NSF Graduate Research Fellow. 
-                                I am affiliated with UNC's <a href="https://hydro.web.unc.edu/" target="_blank">Flood Hydrology and Hazards Lab</a>,
-                                <a href="https://ejclinic.unc.edu/" target="_blank">Environmental Justice Action Research Clinic</a>,
-                                and <a href="https://cpc.unc.edu/" target="_blank">Carolina Population Center</a>. 
-                                I am also involved in the <a href="https://tarheels.live/sunny/about/" target="_blank">Sunny Day Flooding Project</a> 
-                                and the <a href="https://carolinascap.com/" target="_blank">Carolinas Collaborative on Climate, Health, and Equity</a> (a NOAA Climate Adaptation Partnership).
+                                I am affiliated with 
+                                <span><a class="show-on-click" data-show="affiliations" href="#">various groups and projects</a>.</span>
+                                <span class="shown-on-click" id="affiliations">
+                                    UNC's <a href="https://hydro.web.unc.edu/" target="_blank">Flood Hydrology and Hazards Lab</a>,
+                                    <a href="https://ejclinic.unc.edu/" target="_blank">Environmental Justice Action Research Clinic</a>,
+                                    and <a href="https://cpc.unc.edu/" target="_blank">Carolina Population Center</a>. 
+                                    I am also involved in the <a href="https://tarheels.live/sunny/about/" target="_blank">Sunny Day Flooding Project</a> 
+                                    and the <a href="https://carolinascap.com/" target="_blank">Carolinas Collaborative on Climate, Health, and Equity</a> (a NOAA Climate Adaptation Partnership).
+                                </span>
                             </p>
                             <p>
                                 <b>Prior to doctoral studies,</b> I earned bachelor's degrees in environmental science and government from the 
@@ -104,11 +108,15 @@
                                 <b>James is currently a Ph.D. student</b> in the 
                                 <a href="https://planning.unc.edu/" target="_blank">Department of City and Regional Planning</a> at the University of North Carolina at Chapel Hill, where he is training as a community-engaged mixed methods researcher. 
                                 He is an NSF Graduate Research Fellow. 
-                                He is affiliated with UNC's <a href="https://hydro.web.unc.edu/" target="_blank">Flood Hydrology and Hazards Lab</a>,
-                                <a href="https://ejclinic.unc.edu/" target="_blank">Environmental Justice Action Research Clinic</a>,
-                                and <a href="https://cpc.unc.edu/" target="_blank">Carolina Population Center</a>. 
-                                He is also involved in the <a href="https://tarheels.live/sunny/about/" target="_blank">Sunny Day Flooding Project</a> 
-                                and the <a href="https://carolinascap.com/" target="_blank">Carolinas Collaborative on Climate, Health, and Equity</a> (a NOAA Climate Adaptation Partnership).
+                                He is affiliated with 
+                                <span><a class="show-on-click" data-show="affiliations-third" href="#">various groups and projects</a>.</span>
+                                <span class="shown-on-click" id="affiliations-third">
+                                    He is affiliated with UNC's <a href="https://hydro.web.unc.edu/" target="_blank">Flood Hydrology and Hazards Lab</a>,
+                                    <a href="https://ejclinic.unc.edu/" target="_blank">Environmental Justice Action Research Clinic</a>,
+                                    and <a href="https://cpc.unc.edu/" target="_blank">Carolina Population Center</a>. 
+                                    He is also involved in the <a href="https://tarheels.live/sunny/about/" target="_blank">Sunny Day Flooding Project</a> 
+                                    and the <a href="https://carolinascap.com/" target="_blank">Carolinas Collaborative on Climate, Health, and Equity</a> (a NOAA Climate Adaptation Partnership).
+                                </span>
                             <p>
                                 <b>Prior to doctoral studies,</b> James earned bachelor's degrees in environmental science and government from the 
                                 <a href="https://www.esi.utexas.edu/" target="_blank">University of Texas at Austin</a> and worked for 
@@ -232,6 +240,15 @@
             t.hide()
             $('[data-show="'+t.attr('id')+'"]').show()
         }).hide();
+
+        $('.show-on-click').on('click',(e)=>{
+            t = $(e.target);
+            t.parent().fadeOut(700,()=>{
+                $('#'+ t.data('show')).fadeIn(700)
+            })
+            
+        });
+        $('.shown-on-click').hide();
 
         // var default_headshot = null;
         // $('.profile').on('mouseover',(e)=>{
