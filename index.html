@@ -32,7 +32,7 @@
     
 </head>
 <body>
-    
+
     <svg id="fader"></svg>
     <script src="js/faderInit.js"></script>
 
@@ -41,13 +41,21 @@
         <div class="section" id="section-1">
             <div class="container">
                 <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-8 mt-lg-0 mt-5">
+                        <div class="alert alert-primary" role="alert">
+                            I'm currently at <a href="https://bsky.app/profile/kellyhereid.bsky.social/feed/aaam7hqh3nsog" target="_blank" class="alert-link">#AGU24</a>, 
+                            presenting on Fri. 13 Dec, 10:50 - 11:00, "Tolerating the tide: chronic coastal flooding in rural North Carolina and implications for sea level rise driven migration" (<a href="https://agu.confex.com/agu/agu24/meetingapp.cgi/Paper/1615206" class="alert-link">OS52B-04</a>).
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-lg-2"></div>
                     <div class="col-lg-2 pt-5 text-center">
                         <figure class="figure">
-                            <img class="figure-img rounded img-fluid img-max" src="images/headshot crop bw.png" alt="rofile photo of James Collins.">
-                            <figcaption class="figure-caption no-cr"><small class="light">Jess Abel/UNC College of Arts and Sciences</small></figcaption>
+                            <img class="figure-img rounded img-fluid img-max profile" src="images/headshot crop down east.jpg" alt="Profile photo of James Collins, taken by Jess Abel, UNC College of Arts and Sciences.">
                         </figure>
-                        <p class="pt-1">
+                        <p class="pt-0">
                             <a href="assets/collins_cv.pdf" target="_blank">curriculum vitae</a><br>
                             <a href="https://outlook.office.com/bookwithme/user/19b12c9858f844d2811d27780d0c787f%40unc.edu?anonymous&isanonymous=true" target="_blank">schedule a meeting</a>
                         </p>
@@ -59,6 +67,10 @@
                             <a href="https://github.com/jamespcollins" target="_blank">github</a>
                             <a href="https://orcid.org/0000-0001-5751-9733" target="_blank">orcid</a>
                         </ul>
+                        <figcaption class="figure-caption no-cr">
+                            <small class="light show-on-hover" data-show="photocredit">photo credit</small>
+                            <small class="light shown-on-hover" id="photocredit">Jess Abel, UNC College of Arts and Sciences</small>
+                        </figcaption>
                     </div>
                     <div class="col-lg-6 pt-5 px-sm-5 px-lg-3">
                         <h1>James P. Collins <small class="light"> he/him</small></h1>
@@ -208,6 +220,26 @@
             $("#third-person").toggle();
             $("#first-person").toggle();
         });
+
+        
+        $('.show-on-hover').on('mouseover',(e)=>{
+            t = $(e.target)
+            t.hide()
+            $('#'+ t.data('show')).show()
+        });
+        $('.shown-on-hover').on('mouseout',(e)=>{
+            t = $(e.target)
+            t.hide()
+            $('[data-show="'+t.attr('id')+'"]').show()
+        }).hide();
+
+        // var default_headshot = null;
+        // $('.profile').on('mouseover',(e)=>{
+        //     default_headshot = $(e.target).attr("src")
+        //     $(e.target).attr("src","images/headshot crop down east.jpg");
+        // }).on('mouseout',(e)=>{
+        //     $(e.target).attr("src",default_headshot);
+        // });
     </script>
     <script>
         navTooltips = ['Hello', 'Coastal Flooding', 'Farmworker Housing', 'Contact']
